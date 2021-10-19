@@ -27,5 +27,4 @@ class CustomUpdateUserForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'password', 'email', 'business_name', 'business_address', 'bank_account_number', 'bank_name',
-                  ]
+        fields = '__all__'

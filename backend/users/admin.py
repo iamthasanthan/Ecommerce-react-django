@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 # Register your models here.
-from .models import CustomUser
+from .models import BankDetails, BuyerDetail, CustomUser, SellerDetail, SellerImages, ShippingAddress
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
 # Register your models here.
@@ -15,11 +15,11 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (
             (('User'), {
-                'fields': ('username', 'password', 'email', 'business_name', 'business_address')
+                'fields': ('username', 'password', 'email', 'phone_number', 'user_type')
             }),
-            (('Payment'), {
-                'fields': ('bank_name', 'bank_account_number')
-            }),
+            # (('Payment'), {
+            #     'fields': ()
+            # }),
             (('Permissions'), {
                 'fields': ('is_active', 'is_staff', 'is_superuser')
             }),
@@ -27,3 +27,13 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(ShippingAddress)
+admin.site.register(BankDetails)
+admin.site.register(BuyerDetail)
+admin.site.register(SellerDetail)
+admin.site.register(SellerImages)
+
+
+admin.site.site_header = "CT PORTAL"
+admin.site.site_title = "CT PORTAL"
+admin.site.index_title = "CT PORTAL"
