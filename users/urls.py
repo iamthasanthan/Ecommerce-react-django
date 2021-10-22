@@ -1,0 +1,31 @@
+from django.urls import path
+from .views import *
+from store.views import *
+urlpatterns = [
+    path('', userprofileview, name='user-profile'),
+    path('edit/', user_detail_edit, name='edit-profile'),
+    path('register/', user_create, name='register'),
+    path('bank_detail/', add_bank_details, name="bank-detail"),
+    path('buyer/shipping_address/', add_address, name="buyer-add-address"),
+    path('buyer/shipping_address/<int:pk>/', update_shipping_address,
+         name="buyer-update-shipping-address"),
+    path('buyer/', buyerdetail, name="buyer"),
+    path('seller/', sellerdetail, name="seller"),
+    path('seller/images/', sellerimages, name="seller-images"),
+    path('seller/images/<int:pk>/', updatesellerimages,
+         name="seller-update-images"),
+    path('seller/products/', add_product, name="seller-products"),
+    path('seller/products/<int:pk>/', update_product,
+         name="seller-product-update"),
+    path('seller/products/<int:pk>/offers/',
+         all_offers_product, name="all-offers-product"),
+    path('seller/products/<int:pk>/offers/<int:offer_id>/',
+         add_offer, name="add-offer"),
+    path('seller/products/<int:pk>/reviews/', add_review, name="add-review"),
+    path('seller/products/<int:pk>/reviews/<int:review_id>/',
+         update_review, name="update-review"),
+    path('seller/products/<int:pk>/images/',
+         add_product_images, name="add-product-images"),
+    path('seller/products/<int:pk>/images/<int:image_id>/',
+         update_product_image, name="update-product-image"),
+]
